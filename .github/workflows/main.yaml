@@ -68,3 +68,11 @@ jobs:
 
         mv artifacts/api/apiapp.zip artifacts/apiapp.zip
 
+    - name: Release FunctionApp artifact to GitHub
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        automatic_release_tag: "latest"
+        repo_token: "${{ secrets.TOKEN }}"
+        prerelease: false
+        files: |
+          artifacts/apiapp.zip
