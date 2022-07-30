@@ -12,21 +12,21 @@ on:
 
 jobs:
   call_build:
-    uses: ./.github/workflows/ci.yaml
+    uses: './.github/workflows/ci.yaml'
     with:
       artifact_name: apiapp
-
+  
   call_release_dev:
-    uses: ./.github/worlfows/cd.yaml
+    uses: './.github/workflows/cd.yaml'
     needs: call_build
     with:
       title: latest
       artifact_name: apiapp
       env: DEV
     secrets: inherit
-
+  
   call_release_prod:
-    uses: ./.github/worlfows/cd.yaml
+    uses: './.github/workflows/cd.yaml'
     needs: call_release_dev
     with:
       title: latest
